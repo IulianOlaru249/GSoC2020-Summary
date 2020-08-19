@@ -1,4 +1,4 @@
-## Goal
+## Overview
 The goal is to enhance the Linux kernel debugging support on imx8 and imx8m platforms by capturing traces when the DSP panics.
 
 Before working on thisWorking on this, I had no prior experience with open source projects and kernel development. It has been a great learning experience for me, and I would like to thank [Daniel Baluta](https://github.com/dbaluta) for his awesome guidance.
@@ -17,32 +17,26 @@ I was working on an [I.MX8qm board](https://www.nxp.com/design/development-board
 
 ### Setting up U-boot with NFS an TFTP
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
+Find which device is your board
 ```markdown
-Syntax highlighted code block
+ls /dev//tty*
 ```
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
+Connect to the board via serial communication. I personally prefer Picocom.
+```markdown
+sudo picocom -b 115200 <device>
+```
 
-1. Numbered
-2. List
+Your board and physical machine must be the same network. They can be connected to the same network via a Switch. The board will get it’s IP address via DHCP.
+```markdown
+```
+
+Set up tftp server on physical machine.
+```markdown
+	sudo apt update
+	sudo apt install tftpd-hpa
+```
 
 **Bold** and _Italic_ and `Code` text
 
 [Link](url) and ![Image](src)
-
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/IulianOlaru249/GsOC2020-Summary/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
