@@ -24,7 +24,7 @@ github_username:  IulianOlaru249 #https://github.com/IulianOlaru249
 
 # Build settings
 markdown: kramdown
-theme: minima
+theme: jekyll-theme-cayman
 plugins:
   - jekyll-feed
 
