@@ -16,4 +16,4 @@ Before working on thisWorking on this, I had no prior experience with open sourc
 The first step was to get the hardware ready and set up the development envirnment.
 I was working on an [I.MX8qm board](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/i-mx-8quadmax-multisensory-enablement-kit-mek:MCIMX8QM-CPU). The dev environment was set-up via u-boot, with the rootfs on the host machine and parted via an NFS server. The kernel image is cross compiled on the host machine and passed via a TFTP server.
 
-### [Setting up U-boot with NFS an TFTP](http://www.google.co)
+### [Setting up U-boot with NFS an TFTP](https://github.com/IulianOlaru249/GSoC2020-Summary/blob/master/hardware-setup-tutorial.md)
