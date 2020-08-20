@@ -2,7 +2,7 @@
 
 Lorem ipsum dolor sit amet.
 
-{% include button.html url="http://www.google.com" %}
+[Click me](http://www.google.com){: .btn}
 
 The goal is to enhance the Linux kernel debugging support on imx8 and imx8m platforms by capturing traces when the DSP panics.
 
