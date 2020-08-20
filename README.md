@@ -24,7 +24,7 @@ We need to keep track of the program flow from two points of view: the Firmware 
 
 ### Firmware
 In the case of an oops on the firmware side, the exception handler will be called. Further, it will call the panic dump function which will collect information aboutstack registers and filename and will place it in the shared memory. The platform panic function, shown below, is called. The panic message is added in the **debug box** region so the kernel can pick it up. The kernel in then notified via an **interruption**.
-```markdown
+```c
 static inline void platform_panic(uint32_t p)
 {
 	/* Store the error code in the debug box so the
@@ -40,7 +40,7 @@ static inline void platform_panic(uint32_t p)
 
 ### Kernel
 The kernel will receive a message in the **debug box**. It will check if it is a panic code, and act accordingly.
-```markdown
+```c
 static void imx8_dsp_handle_request(struct imx_dsp_ipc *ipc)
 {
 	struct imx8_priv *priv = imx_dsp_get_data(ipc);
@@ -58,7 +58,7 @@ static void imx8_dsp_handle_request(struct imx_dsp_ipc *ipc)
 ```
 
 If it is a panic message, snd_sof_dsp_panic will be called, which, in turn, will call snd_sof_dsp_dbg_dump. This is just an alias for the imx_dump below.
-```markdown
+```c
 /**
  * imx8_dump() - This function is called when a panic message is
  * received from the firmware.
@@ -88,7 +88,7 @@ void imx8_dump(struct snd_sof_dev *sdev, u32 flags)
 ```
 
 Information about registers will be gathered by imx8_get_registers.
-```markdown
+```c
 /**
  * imx8_get_registers() - This function is called in case of DSP oops
  * in order to gather information about the registers, filename and
