@@ -128,5 +128,70 @@ void imx8_get_registers(struct snd_sof_dev *sdev,
 ```
 
 And finally, all information will be printed to the console on the kernel side
-```markdown
+```bash
+root@imx8qxpmek:~# aplay -Dhw:0,0 -f S32_LE -c 2 -r 4800 /Metallica\ One\ \(Official\ Music\ Video\)\ \(online-audio-converter.com\).wav 
+[   46.500179] sof-audio-of 556e8000.dsp: error : DSP panic!
+[   46.505609] sof-audio-of 556e8000.dsp: error: runtime exception
+[   46.511539] sof-audio-of 556e8000.dsp: error: trace point 0dead006
+[   46.517722] sof-audio-of 556e8000.dsp: error: panic at src/arch/xtensa/init.c:48
+[   46.525126] sof-audio-of 556e8000.dsp: error: DSP Firmware Oops
+[   46.531051] sof-audio-of 556e8000.dsp: EXCCAUSE 0x0000003f EXCVADDR 0x00000000 PS       0x00060125 SAR     0x15222604
+[   46.541663] sof-audio-of 556e8000.dsp: EPC1     0x627400c3 EPC2     0x9241f43a EPC3     0x00000000 EPC4    0x00000000
+[   46.552280] sof-audio-of 556e8000.dsp: EPC5     0x00000000 EPC6     0x200828fa EPC7     0xa4d4a0ae DEPC    0x00000000
+[   46.562896] sof-audio-of 556e8000.dsp: EPS2     0x00060020 EPS3     0x00000000 EPS4     0x00000000 EPS5    0x00000000
+[   46.573512] sof-audio-of 556e8000.dsp: EPS6     0x242636a0 EPS7     0x800a2407 INTENABL 0x660e066c INTERRU 0x00000408
+[   46.584129] sof-audio-of 556e8000.dsp: stack dump from 0x9244f4f0
+[   46.590235] sof-audio-of 556e8000.dsp: 0x9244f4f0: 00000000 00000000 00000000 00000000
+[   46.598163] sof-audio-of 556e8000.dsp: 0x9244f4f4: 6574782f 2f61736e 74696e69 0000632e
+[   46.606083] sof-audio-of 556e8000.dsp: 0x9244f4f8: 3e1bd700 45219c4c 1244be00 ffff8000
+[   46.614006] sof-audio-of 556e8000.dsp: 0x9244f4fc: 00000001 00000000 1244be30 0dead006
+[   46.621931] sof-audio-of 556e8000.dsp: 0x9244f500: 10e07190 ffff8000 1244be90 ffff8000
+[   46.629852] sof-audio-of 556e8000.dsp: 0x9244f504: 100cde20 ffff8000 12108000 ffff8000
+[   46.637775] sof-audio-of 556e8000.dsp: 0x9244f508: 1244c000 ffff8000 11bc0008 ffff8000
+[   46.645698] sof-audio-of 556e8000.dsp: 0x9244f50c: 121092c8 ffff8000 1244bf30 00000000
+[   48.517562] sof-audio-of 556e8000.dsp: error: firmware boot failure
+[   48.523877] sof-audio-of 556e8000.dsp: error: runtime exception
+[   48.529827] sof-audio-of 556e8000.dsp: error: trace point 0dead006
+[   48.536046] sof-audio-of 556e8000.dsp: error: panic at src/arch/xtensa/init.c:48
+[   48.543484] sof-audio-of 556e8000.dsp: error: DSP Firmware Oops
+[   48.549434] sof-audio-of 556e8000.dsp: EXCCAUSE 0x0000003f EXCVADDR 0x00000000 PS       0x00060125 SAR     0x15222604
+[   48.560085] sof-audio-of 556e8000.dsp: EPC1     0x627400c3 EPC2     0x9241f43a EPC3     0x00000000 EPC4    0x00000000
+[   48.570733] sof-audio-of 556e8000.dsp: EPC5     0x00000000 EPC6     0x200828fa EPC7     0xa4d4a0ae DEPC    0x00000000
+[   48.581592] sof-audio-of 556e8000.dsp: EPS2     0x00060020 EPS3     0x00000000 EPS4     0x00000000 EPS5    0x00000000
+[   48.592257] sof-audio-of 556e8000.dsp: EPS6     0x242636a0 EPS7     0x800a2407 INTENABL 0x660e066c INTERRU 0x00000408
+[   48.602915] sof-audio-of 556e8000.dsp: stack dump from 0x9244f4f0
+[   48.609245] sof-audio-of 556e8000.dsp: 0x9244f4f0: 00000000 00000000 00000000 00000000
+[   48.617202] sof-audio-of 556e8000.dsp: 0x9244f4f4: 6574782f 2f61736e 74696e69 0000632e
+[   48.625148] sof-audio-of 556e8000.dsp: 0x9244f4f8: 3e1bd700 45219c4c 12efb680 ffff8000
+[   48.633097] sof-audio-of 556e8000.dsp: 0x9244f4fc: 00000004 00000000 00000000 ffff8000
+[   48.641037] sof-audio-of 556e8000.dsp: 0x9244f500: 091c4854 ffff8000 f79e2c10 ffff0008
+[   48.648998] sof-audio-of 556e8000.dsp: 0x9244f504: 10873780 ffff8000 12efb710 ffff8000
+[   48.656952] sof-audio-of 556e8000.dsp: 0x9244f508: f79e2810 ffff0008 12efb740 ffff8000
+[   48.664902] sof-audio-of 556e8000.dsp: 0x9244f50c: 10873544 ffff8000 f79e2c10 ffff0008
+[   48.672838] sof-audio-of 556e8000.dsp: error: failed to boot DSP firmware after resume -5
+Warning: format is changed to S16_LE[   48.687923] sof-audio-of 556e8000.dsp: error: ipc error for 0x60010000 size 20
+
+Playing WAVE '/Metallica One (Official Music Video) (online-aud[   48.696563] sof-audio-of 556e8000.dsp: error: hw params ipc failed for stream 0
+io-converter.com).wav' : Signed 16 bit Little Endian, Rate 44100 [   48.709514] sof-audio-of 556e8000.dsp: ASoC: 556e8000.dsp hw params failed: -19
+Hz, Stereo
+Warning: rate is not accurate (requested = 44100Hz, g[   48.722485]  Port0: ASoC: hw_params FE failed -19
+ot = 48000Hz)
+         please, try the plug plugin 
+aplay: set_params:1403: Unable to install hw params:
+ACCESS:  RW_INTERLEAVED
+FORMAT:  S16_LE
+SUBFORMAT:  STD
+SAMPLE_BITS: 16
+FRAME_BITS: 32
+CHANNELS: 2
+RATE: 48000
+PERIOD_TIME: 85000
+PERIOD_SIZE: 4080
+PERIOD_BYTES: 16320
+PERIODS: (4 5)
+BUFFER_TIME: 341000
+BUFFER_SIZE: 16368
+BUFFER_BYTES: 65472
+TICK_TIME: 0
+
 ```
