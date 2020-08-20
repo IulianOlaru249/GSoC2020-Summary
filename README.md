@@ -1,8 +1,6 @@
 ## Overview
 
-Lorem ipsum dolor sit amet.
-
-[Click me](http://www.google.com){: .btn}
+[Click me](http://www.google.com){: .btn}	<button name="button" onclick="http://www.google.com">Click me</button>
 
 The goal is to enhance the Linux kernel debugging support on imx8 and imx8m platforms by capturing traces when the DSP panics.
 
