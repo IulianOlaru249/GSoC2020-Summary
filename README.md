@@ -1,4 +1,5 @@
-<img src="images/gsoc_logo.png" >
+
+{% include image.html file="images/gsoc_logo.png" alt="GSoc-Logo"%}
 	
 # Overview
 
