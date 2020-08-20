@@ -1,4 +1,5 @@
-<image src="images/gsoc_logo.png">
+<img src="images/gsoc_logo.png" >
+	
 # Overview
 
 The goal is to enhance the Linux kernel debugging support on imx8 and imx8m platforms by capturing traces when the DSP panics.
