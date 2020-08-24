@@ -5,7 +5,7 @@
 
 The goal is to enhance the Linux kernel debugging support on imx8 and imx8m platforms by capturing traces when the DSP panics.
 
-Before working on thisWorking on this, I had no prior experience with open source projects and kernel development. It has been a great learning experience for me, and I would like to thank [Daniel Baluta](https://github.com/dbaluta) for his awesome guidance.
+Before working on this, I had no prior experience with open source projects and kernel development. It has been a great learning experience for me, and I would like to thank [Daniel Baluta](https://github.com/dbaluta) for his awesome guidance.
 
 ### The patches that make up the project
 
@@ -17,7 +17,7 @@ Before working on thisWorking on this, I had no prior experience with open sourc
 # How was it done?
 
 ## Hardware
-The first step was to get the hardware ready and set up the development envirnment.
+The first step was to get the hardware ready and set up the development environment.
 I was working on an [I.MX8qm board](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/i-mx-8quadmax-multisensory-enablement-kit-mek:MCIMX8QM-CPU). The dev environment was set-up via u-boot, with the rootfs on the host machine and parted via an NFS server. The kernel image is cross compiled on the host machine and passed via a TFTP server.
 
 ### [Setting up U-boot with NFS and TFTP](https://github.com/IulianOlaru249/GSoC2020-Summary/blob/master/hardware-setup-tutorial.md)
@@ -26,7 +26,7 @@ I was working on an [I.MX8qm board](https://www.nxp.com/design/development-board
 We need to keep track of the program flow from two points of view: the Firmware and the Kernel.
 
 ### Firmware
-In the case of an oops on the firmware side, the exception handler will be called. Further, it will call the panic dump function which will collect information aboutstack registers and filename and will place it in the shared memory. The platform panic function, shown below, is called. The panic message is added in the **debug box** region so the kernel can pick it up. The kernel in then notified via an **interruption**.
+In the case of an oops on the firmware side, the exception handler will be called. Further, it will call the panic dump function which will collect information about the stack, registers and filename and will place it in the shared memory. The platform panic function, shown below, is called. The panic message is added in the **debug box** region so the kernel can pick it up. The kernel in then notified via an **interruption**.
 ```c
 static inline void platform_panic(uint32_t p)
 {
