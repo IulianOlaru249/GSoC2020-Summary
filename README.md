@@ -18,7 +18,7 @@ Before working on this, I had no prior experience with open source projects and 
 
 ## Hardware
 The first step was to get the hardware ready and set up the development environment.
-I was working on an [I.MX8qm board](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/i-mx-8quadmax-multisensory-enablement-kit-mek:MCIMX8QM-CPU). The dev environment was set-up via u-boot, with the rootfs on the host machine and parted via an NFS server. The kernel image is cross compiled on the host machine and passed via a TFTP server.
+I was working on an [i.MX8QM  board](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/i-mx-8quadmax-multisensory-enablement-kit-mek:MCIMX8QM-CPU). The dev environment was set-up via u-boot, with the rootfs on the host machine and parted via an NFS server. The kernel image is cross compiled on the host machine and passed via a TFTP server.
 
 ### [Setting up U-boot with NFS and TFTP](https://github.com/IulianOlaru249/GSoC2020-Summary/blob/master/hardware-setup-tutorial.md)
 
@@ -26,7 +26,7 @@ I was working on an [I.MX8qm board](https://www.nxp.com/design/development-board
 We need to keep track of the program flow from two points of view: the Firmware and the Kernel.
 
 ### Firmware
-In the case of an oops on the firmware side, the exception handler will be called. Further, it will call the panic dump function which will collect information about the stack, registers and filename and will place it in the shared memory. The platform panic function, shown below, is called. The panic message is added in the **debug box** region so the kernel can pick it up. The kernel in then notified via an **interruption**.
+In the case of an oops on the firmware side, the exception handler will be called. Further, it will call the panic dump function which will collect information about the stack, registers and filename and will place it in the shared memory. The platform panic function, shown below, is called. The panic message is added in the **debug box** region so the kernel can pick it up. The kernel is then notified via an **interrup**.
 ```c
 static inline void platform_panic(uint32_t p)
 {
@@ -195,3 +195,21 @@ BUFFER_BYTES: 65472
 TICK_TIME: 0
 
 ```
+
+# What I learned !
+
+While working on this project, I had the opportunity to learn from amazing people and I tried to take full advantage of that. I learned:
+- how set up the hardware environment
+- how the kernel works underneath the hood :)
+- how to cross compile the Linux Kernel
+- how to make my way trough the Linux Kernel source code
+- how the Sound Open Firmware works
+- how a firmware and an application processor (such as the kernel) communicate
+- how to work better with git
+- how to make contributions to an open source project
+
+And those are just the highlights. Google Summer of Code has been an amazing journey and I am grateful for the opportunity. I came a long way this summer and I intend to keep in touch with my mentor and the community since I stil have a lot to learn from them.
+
+# What is next?
+
+The next step is to work on integrating a gdb stub, so that the developer can do live debugging whenever there is something wrong with the firmware.
